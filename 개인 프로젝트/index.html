@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todoList</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Todo List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FFF;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        textarea,
+        input[type="date"],
+        select {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #F8F8F8;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: #FFF;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            background-color: #FFF;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .completed {
+            background-color: #E0E0E0;
+            text-decoration: line-through;
+        }
+
+        .priority {
+            color: #FFF;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-left: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .high {
+            background-color: #F44336;
+        }
+
+        .medium {
+            background-color: #FF9800;
+        }
+
+        .low {
+            background-color: #8BC34A;
+        }
+
+        .search-container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .search-container input[type="text"] {
+            margin-bottom: 10px;
+        }
+
+        .sort-container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .sort-container label {
+            margin-right: 0;
+            margin-bottom: 5px;
+        }
+
+        .action-buttons button {
+            margin-left: 0;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h1>To do list</h1>
+    <form id="todoForm">
+      <input type="text" id="titleInput" placeholder="제목" required>
+      <textarea id="descriptionInput" placeholder="설명" required></textarea>
+      <input type="date" id="dueDateInput" required>
+      <select id="priorityInput" required>
+        <option value="" disabled selected hidden>우선순위 선택</option>
+        <option value="high">높음</option>
+        <option value="medium">중간</option>
+        <option value="low">낮음</option>
+      </select>
+      <button type="submit">추가</button>
+    </form>
+    <input type="text" id="searchInput" placeholder="할 일 검색">
+    <div id="calendar"></div>
+    <div id="filterOptions">
+      <select id="sortOptions">
+        <option value="default">기본 정렬</option>
+        <option value="dueDate">마감 기한</option>
+        <option value="priority">우선순위</option>
+        <option value="title">제목</option>
+      </select>
+    </div>
+    <ul id="todoList"></ul>
+  </div>
+  
+    <script src="script.js"></script>
+</body>
+</html>
